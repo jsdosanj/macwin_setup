@@ -1,0 +1,11 @@
+1. Make sure to wipe Windows PC
+2. Install Windows 11
+3. Once you have created the admin account on the PC, run Windows updates
+4. After Windows Updates have completed, you can follow the steps below:
+    1. Make sure the Microsoft App Installer is installed:https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1
+    2. Open Terminal/PowerShell/CommandPrompt as Administrator
+    3. Copy & Paste the command into Terminal/PowerShell/CommandPrompt.
+    4. Press Enter.
+    5. The command should start running and you will see progress bars for each application.
+
+winget install -e --id Zoom.Zoomit;winget install -e --id Zoom.Zoom;winget install -e --id VideoLAN.VLC;winget install -e --id Notepad++.Notepad++;winget install -e --id Mozilla.Firefox;winget install -e --id Microsoft.Office;winget install -e --id Microsoft.Teams;winget install -e --id Microsoft.VisualStudioCode;winget install -e --id Grammarly.Grammarly.Office;winget install -e --id Microsoft.PowerToys;winget install -e --id Microsoft.RemoteDesktopClient;winget install -e --id Microsoft.NuGet;winget install -e --id Dell.CommandUpdate;winget install -e --id Dell.DisplayManager;winget install -e --id Google.Chrome;winget install -e --id Adobe.Acrobat.Reader.64-bit;winget install -e --id Greenshot.Greenshot;winget install -e --id 7zip.7zip
