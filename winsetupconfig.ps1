@@ -13,7 +13,7 @@
 #    9. After the script has completed, please change the device name and restart the computer.
 
 Write-Output("Uninstalling all the packaged crapware; we will leave Windows Store so anything can be replaced...")
-DISM /Online /Get-ProvisionedAppxPackages | select-string Packagename | % {$_ -replace("PackageName : ", "")} | select-string "^((?!WindowsStore).)*$" | select-string "^((?!DesktopAppInstaller).)*$" | ForEach-Object {Remove-AppxPackage -allusers -package $_}
+DISM /Online /Get-ProvisionedAppxPackages | select-string Packagename | ForEach-Object {$_ -replace("PackageName : ", "")} | select-string "^((?!WindowsStore).)*$" | select-string "^((?!DesktopAppInstaller).)*$" | ForEach-Object {Remove-AppxPackage -allusers -package $_}
 
 Write-Output("Installing Winget package manager...")
 Add-AppxPackage 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx'
@@ -108,7 +108,7 @@ Get-Process -Name explorer | Stop-Process
 start explorer.exe
 
 # Get Serial Number of device so you can rename the PC
-Get-WmiObject win32_bios | select Serialnumber
+Get-WmiObject win32_bios | Select-Object Serialnumber
 Write-Output("Please set the device name using this naming standard:")
 Write-Output("Department name-serial number Example: CAS-123456")
 Write-Output("Please make sure to install Sophos Central and Big-IP Edge Client")
