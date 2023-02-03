@@ -13,33 +13,6 @@ echo " Ask for the administrator/root password for the duration of this script"
 sudo -v
 
 ###############################################################################
-# Hostname                                                                    #
-###############################################################################
-
-# Change Hostname of Device if not previously done
-# Set Hostname of device as: Department Abbreviations-Device Serial Number
-printf "What would you like to set the Hostname as for this device? "
-read -r HOSTNAME
-if [ -z "$HOSTNAME" ]; then
-  printf "HOSTNAME is empty" >&2
-  exit 1
-fi
-while true; do
-  read -r "Is that the correct Hostname? $HOSTNAME" yn
- case $yn in
-       [Yy]* ) proceed with setup; 
-	   sudo echo "$HOSTNAME" 
-	   sudo scutil --set ComputerName "$HOSTNAME"
-	   sudo scutil --set HostName "$HOSTNAME"
-	   sudo scutil --set LocalHostName "$HOSTNAME"
-	   sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$HOSTNAME"
-	   break;;
-        [Nn]* ) exit;;
-      * ) echo "Please answer yes or no.";;
-    esac
-done
-
-###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
 
@@ -262,13 +235,26 @@ echo "Turn on app auto-update"
 defaults write com.apple.commerce AutoUpdate -bool true
 
 ###############################################################################
+# SSH, Firewall and Networking                                                #
+###############################################################################
+
+echo "Now running Networking Commands"
+
+# Enable Screen Sharing
+sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+
+###############################################################################
 # Install Packages                                                            #
 ###############################################################################
 
 echo "Now Installing Packages"
 
+echo "Installing Rosetta"
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
 echo "Installing XCode Command Line Tools"
-xcode-select — install
+xcode-select —-install
 
 echo "Installing Zoom"
 curl -L -O https://zoom.us/client/latest/ZoomInstallerIT.pkg
@@ -301,16 +287,6 @@ echo "Installing Microsoft Teams"
 curl -L -O https://go.microsoft.com/fwlink/p/?LinkID=869428&clcid=0x409&culture=en-us&country=US&lm=deeplink&lmsrc=groupChatMarketingPageWeb&cmpid=directDownloadMac
 
 ###############################################################################
-# SSH, Firewall and Networking                                                #
-###############################################################################
-
-echo "Now running Networking Commands"
-
-# Enable Screen Sharing
-sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
-
-###############################################################################
 # Final Verification                                                          #
 ###############################################################################
 
@@ -322,8 +298,6 @@ ipconfig getifaddr en0
 sw_vers
 uname -a
 uptime
-mount
-echo "$PATH"
 
 # Reboot the system
 echo "Well that was fun, wasn't it? I hope everything worked as it should :) "
