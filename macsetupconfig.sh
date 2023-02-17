@@ -259,9 +259,6 @@ xcode-select --install
 echo "Installing Zoom"
 curl -L -O https://zoom.us/client/latest/ZoomInstallerIT.pkg
 
-echo "Installing Sophos Central"
-curl -L -O https://dzr-api-amzn-us-west-2-fa88.api-upe.p.hmr.sophos.com/api/download/4b2d7ff952ba817680551198cfd2552f/SophosSetup.exe
-
 echo "Installing Visual Studio Code"
 curl -L -O hhttps://code.visualstudio.com/sha/download?build=stable&os=darwin-arm64
 
@@ -287,19 +284,12 @@ curl -L -O https://github.com/IvanMathy/Boop/releases/download/1.4.0/Boop.zip
 unzip Boop.zip
 
 echo "Installing Microsoft Office"
-cul -L -O https://go.microsoft.com/fwlink/?linkid=2009112
+cul -L -O https://officecdnmac.microsoft.com/pr/C1297A47-86C4-4C1F-97FA-950631F94777/MacAutoupdate/Microsoft_365_and_Office_16.70.23021201_BusinessPro_Installer.pkg
 
 echo "Installing Microsoft Teams"
-curl -L -O https://go.microsoft.com/fwlink/p/?LinkID=869428&clcid=0x409&culture=en-us&country=US&lm=deeplink&lmsrc=groupChatMarketingPageWeb&cmpid=directDownloadMac
+curl -L -O https://statics.teams.cdn.office.net/evergreen-assets/DesktopClient/MacAudioLBDriver/2022.31.01.1/MSTeamsAudioDevice.pkg
 
-sudo installer -pkg "/Users/admin/Desktop/ZoomInstallerIT.pkg" -target /
-sudo installer -pkg "/Users/admin/Desktop/googlechrome.pkg" -target /
-sudo hdiutil attach "Rectangle0.65.dmg"
-sudo mv -f ~/Users/admin/Desktop/Rectangle0.65.dmg/Rectangle0.65,app ~/User/admin/Applications/Rectangle0.65,app
-sudo installer -pkg "/Users/admin/Desktop/[displaylink] mac usb display adapter/OS 10.15/DisplayLink Manager Graphics Connectivity 1.4.pkg" -target /
-sudo mv -f ~/Users/admin/Desktop/Boop,app ~/User/admin/Applications/Boop,app
-sudo installer -pkg "/Users/admin/Desktop/Teams_osx.pkg" -target /
-sudo installer -pkg "/Users/admin/Desktop/Microsoft_365_and_Office_16.70.23021201_BusinessPro_Installer.pkg" -target /
+sudo softwareupdate --install all
 
 ###############################################################################
 # Final Verification                                                          #
