@@ -258,7 +258,6 @@ xcode-select --install
 
 echo "Installing Zoom"
 curl -L -O https://zoom.us/client/latest/ZoomInstallerIT.pkg
-sudo installer -pkg "/User/admin/Desktop/ZoomInstallerIT.pkg" -target /
 
 echo "Installing Sophos Central"
 curl -L -O https://dzr-api-amzn-us-west-2-fa88.api-upe.p.hmr.sophos.com/api/download/4b2d7ff952ba817680551198cfd2552f/SophosSetup.exe
@@ -269,19 +268,16 @@ curl -L -O hhttps://code.visualstudio.com/sha/download?build=stable&os=darwin-ar
 
 echo "Installing Google Chrome"
 curl -L -O https://dl.google.com/chrome/mac/stable/accept_tos%3Dhttps%253A%252F%252Fwww.google.com%252Fintl%252Fen_ph%252Fchrome%252Fterms%252F%26_and_accept_tos%3Dhttps%253A%252F%252Fpolicies.google.com%252Fterms/googlechrome.pkg
-sudo installer -pkg "/User/admin/Desktop/googlechrome.pkg" -target /
 
 echo "Installing Mozilla Firefox"
 curl -L -O https://download.mozilla.org/?product=firefox-latest-ssl&os=osx&lang=en-US
 
 echo "Installing Rectangle"
 curl -L -O https://github.com/rxhanson/Rectangle/releases/download/v0.65/Rectangle0.65.dmg
-sudo installer -dmg "/User/admin/Desktop/Rectangle0.65.dmg" -target /
 
 echo "Installing DisplayLink Manager"
 curl -L -O https://sgcdn.startech.com/005329/media/sets/displaylink_mac_drivers/%5bdisplaylink%5d%20mac%20usb%20display%20adapter.zip
 unzip %5bdisplaylink%5d%20mac%20usb%20display%20adapter.zip
-sudo installer -pkg "/User/admin/Desktop/[displaylink] mac usb display adapter/DisplayLink Manager Graphics Connectivity 1.4.pkg" -target /
 
 echo "Installing Microsoft Remote Desktop"
 curl -L -O https://go.microsoft.com/fwlink/?linkid=868963&WT.mc_id=DT-MVP-5003202
@@ -289,10 +285,15 @@ curl -L -O https://go.microsoft.com/fwlink/?linkid=868963&WT.mc_id=DT-MVP-500320
 echo "Installing Boop"
 curl -L -O https://github.com/IvanMathy/Boop/releases/download/1.4.0/Boop.zip
 unzip Boop.zip
-sudo mv "/User/admin/Desktop/Boop,app" "/User/admin/Applications/Boop,app"
 
 echo "Installing Microsoft Teams"
 curl -L -O https://go.microsoft.com/fwlink/p/?LinkID=869428&clcid=0x409&culture=en-us&country=US&lm=deeplink&lmsrc=groupChatMarketingPageWeb&cmpid=directDownloadMac
+
+sudo installer -pkg "/User/admin/Desktop/ZoomInstallerIT.pkg" -target /
+sudo installer -pkg "/User/admin/Desktop/googlechrome.pkg" -target /
+sudo installer  -allowUntrusted -dmg "/User/admin/Desktop/Rectangle0.65.dmg" -target /
+sudo installer -pkg "/User/admin/Desktop/[displaylink] mac usb display adapter/DisplayLink Manager Graphics Connectivity 1.4.pkg" -target /
+sudo mv "/User/admin/Desktop/Boop,app" "/User/admin/Applications/Boop,app"
 
 ###############################################################################
 # Final Verification                                                          #
