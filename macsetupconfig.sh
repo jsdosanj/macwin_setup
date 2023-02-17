@@ -263,19 +263,19 @@ echo "Installing Sophos Central"
 curl -L -O https://dzr-api-amzn-us-west-2-fa88.api-upe.p.hmr.sophos.com/api/download/4b2d7ff952ba817680551198cfd2552f/SophosSetup.exe
 
 echo "Installing Visual Studio Code"
-curl -L -O https://go.microsoft.com/fwlink/?LinkID=534106
+curl -L -O hhttps://code.visualstudio.com/sha/download?build=stable&os=darwin-arm64
 
 echo "Installing Google Chrome"
-curl -L -O https://www.google.com/chrome
+curl -L -O https://dl.google.com/chrome/mac/stable/accept_tos%3Dhttps%253A%252F%252Fwww.google.com%252Fintl%252Fen_ph%252Fchrome%252Fterms%252F%26_and_accept_tos%3Dhttps%253A%252F%252Fpolicies.google.com%252Fterms/googlechrome.pkg
 
 echo "Installing Mozilla Firefox"
-curl -L -O https://www.mozilla.org/en-US/firefox/download/thanks/
+curl -L -O https://download.mozilla.org/?product=firefox-latest-ssl&os=osx&lang=en-US
 
 echo "Installing Rectangle"
 curl -L -O https://github.com/rxhanson/Rectangle/releases/download/v0.65/Rectangle0.65.dmg
 
 echo "Installing DisplayLink Manager"
-curl -L -O http://www.synaptics.com/node/5026?filetype=exe
+curl -L -O https://sgcdn.startech.com/005329/media/sets/displaylink_mac_drivers/%5bdisplaylink%5d%20mac%20usb%20display%20adapter.zip
 
 echo "Installing Microsoft Remote Desktop"
 curl -L -O https://go.microsoft.com/fwlink/?linkid=868963&WT.mc_id=DT-MVP-5003202
