@@ -293,7 +293,7 @@ sudo installer -pkg "/Users/admin/Desktop/ZoomInstallerIT.pkg" -target /
 sudo installer -pkg "/Users/admin/Desktop/googlechrome.pkg" -target /
 sudo hdiutil attach "Rectangle0.65.dmg"
 sudo mv "/Users/admin/Desktop/Rectangle0.65.dmg/Rectangle0.65,app" "/User/admin/Applications/Rectangle0.65,app"
-sudo installer -pkg "/Users/admin/Desktop/[displaylink] mac usb display adapter/DisplayLink Manager Graphics Connectivity 1.4.pkg" -target /
+sudo installer -pkg "/Users/admin/Desktop/[displaylink] mac usb display adapter/OS 10.15/DisplayLink Manager Graphics Connectivity 1.4.pkg" -target /
 sudo mv "/Users/admin/Desktop/Boop,app" "/User/admin/Applications/Boop,app"
 
 ###############################################################################
