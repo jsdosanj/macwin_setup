@@ -254,7 +254,7 @@ echo "Installing Rosetta"
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
 echo "Installing XCode Command Line Tools"
-xcode-select —-install
+xcode-select --install
 
 echo "Installing Zoom"
 curl -L -O https://zoom.us/client/latest/ZoomInstallerIT.pkg
