@@ -19,6 +19,7 @@ sudo -v
 # This command will enable FileVault on the Mac and save the recovery key to a text file with the hostname of the Mac in the filename. 
 # The file will be saved on the Desktop of the current user. 
 # Note that this command requires administrator privileges, so it will prompt for the administrator password before it can proceed.
+echo "Enable FileVault"
 sudo fdesetup enable -outputplist | grep -A1 'Key:' | sed -n -e '/<string>/,/<\/string>/ p' | sed -e 's/<[^>]*>//g' > ~/Desktop/$(hostname)-filevault-recovery-key.txt
 
 ###############################################################################
