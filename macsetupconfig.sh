@@ -15,8 +15,10 @@ sudo -v
 ###############################################################################
 # FileVault                                                                   #
 ###############################################################################
-echo "Verify FileVault is enabled"
-fdesetup status
+# This command will enable FileVault on the Mac and save the recovery key to a text file with the hostname of the Mac in the filename. 
+# The file will be saved on the Desktop of the current user. 
+echo "Enable FileVault"
+sudo fdesetup enable -outputplist | grep -A1 'Key:' | sed -n -e '/<string>/,/<\/string>/ p' | sed -e 's/<[^>]*>//g' > ~/Desktop/$(hostname)-filevault-recovery-key.txt
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -294,6 +296,9 @@ cul -L -O https://officecdnmac.microsoft.com/pr/C1297A47-86C4-4C1F-97FA-950631F9
 
 echo "Installing Microsoft Teams"
 curl -L -O https://statics.teams.cdn.office.net/evergreen-assets/DesktopClient/MacAudioLBDriver/2022.31.01.1/MSTeamsAudioDevice.pkg
+
+echo "Installing UW VPN Client"
+cul -L -O https://softy.cac.washington.edu/HuskyOnNet/BIGIPMacEdgeClient_v723.zip
 
 sudo softwareupdate --install all
 
